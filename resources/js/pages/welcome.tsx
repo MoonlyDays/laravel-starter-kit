@@ -1,4 +1,4 @@
-import { type SharedData } from '@/types';
+import { SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Welcome() {

@@ -7,37 +7,44 @@ export interface Auth {
 
 export interface BreadcrumbItem {
     title: string;
-    href: string;
+    href?: string;
 }
 
-export interface NavGroup {
-    title: string;
-    items: NavItem[];
-}
+export type NavItem = NavItemSingle | NavItemGroup;
 
-export interface NavItem {
+type NavItemShared = {
     title: string;
-    href: string;
     icon?: LucideIcon | null;
-    isActive?: boolean;
-}
+};
 
-export interface SharedData {
-    name: string;
-    quote: { message: string; author: string };
+export type NavItemSingle = NavItemShared & {
+    href: string;
+};
+
+export type NavItemGroup = NavItemShared & {
+    items: NavItemSingle[];
+};
+
+export type SharedData = {
     auth: Auth;
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
+    toast?: {
+        message: string;
+        nonce: string;
+    };
+
     [key: string]: unknown;
-}
+};
 
 export interface User {
     id: number;
     name: string;
     email: string;
-    avatar?: string;
+    avatar_url?: string;
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
+
     [key: string]: unknown; // This allows for additional properties...
 }

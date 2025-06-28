@@ -1,8 +1,8 @@
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
-import { type NavItem } from '@/types';
+import { NavItemSingle } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
-export function NavMain({ items = [] }: { items: NavItem[] }) {
+export function NavMain({ items = [] }: { items: NavItemSingle[] }) {
     const page = usePage();
     return (
         <SidebarGroup className="px-2 py-0">

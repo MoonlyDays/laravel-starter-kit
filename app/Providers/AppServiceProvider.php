@@ -21,9 +21,9 @@ class AppServiceProvider extends ServiceProvider
     protected function bootMacros(): void
     {
         RedirectResponse::macro('withToast', function ($message) {
-            return $this->with([
-                'toast' => $message,
-                'toast_nonce' => Str::uuid(),
+            return $this->with('toast', [
+                'message' => $message,
+                'nonce' => Str::uuid(),
             ]);
         });
     }
